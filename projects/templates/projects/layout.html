@@ -1,0 +1,93 @@
+{% load static from staticfiles %}
+
+<!doctype html>
+
+<html lang="en">
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  .topnav a {
+    float: center;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+</style>
+
+
+
+<meta charset="utf-8">
+
+
+<meta name="description" content="The HTML5 Herald">
+<meta name="author" content="SitePoint">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<title >Ketan Patil</title>
+<!--   <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+</head>
+
+<body>
+
+  <header class="container">
+    <img src="{% static 'ketan_smallSize.jpg'%}" alt="Smiley face" align="left" style="width:180px;height:130px;">
+   <img src="{% static 'asu.jpg'%}" alt="Smiley face" align="right" style="width:180px;height:130px;">
+   <div class="container center-align">
+
+    <h1 style="align:center font-family: 'Merriweather', Georgia, Times;" ><a href="/aboutme">Ketan Patil</a></h1>
+    <a href="mailto:kkpatil1@asu.edu" target="_blank">Mail</a> || 
+    <a href="https://www.linkedin.com/in/ketan-patil10/" target="_blank">Linkedin</a> || 
+    <a href="https://github.com/Thek10patil" target="_blank">Github</a> ||
+    <a href="/static/Resume.pdf" download>Resume</a>  
+
+  </div>
+  
+ </header>
+
+
+<br>
+<div class="topnav center-align">
+  <a {% if request.resolver_match.url_name == 'aboutme' or request.resolver_match.url_name == '' %}class="active"{% endif %} href="/aboutme">About Me</a>
+  <a {% if request.resolver_match.url_name == 'projects'  %}class="active"{% endif %} href="/projects">Projects</a>
+  <a {% if request.resolver_match.url_name == 'courses'  %}class="active"{% endif %} href="/courses">Courses</a>
+  <a {% if request.resolver_match.url_name == 'contact'  %}class="active"{% endif %} href="/contact">Contact Me</a>
+</div>
+
+
+
+
+<div class = "container">
+ {% block content %}
+ {% endblock %}
+
+ <br>
+ <a style="display:block"  class="center-align" href="/admin">Admin Login</a>
+
+
+</div>
+
+</body>
+</html>

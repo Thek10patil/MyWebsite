@@ -1,0 +1,41 @@
+
+{%extends 'projects/layout.html' %}
+{% block content %}
+
+<h4 class ="center-align red lighten-3">{{project.title}}</h4>
+
+<div class="card">
+	<div class = "card-action">
+
+		<b>Course</b> - {{project.course_name}}
+<span style="float: right"><b>{{project.created_at}}</b></span>
+		
+	</div>
+	<div class = "card-content card-action">
+		<b>Decription</b>
+		<br>
+		<br>
+		{{project.body}}
+	</div>
+	<div class = "card-action">
+		<b>GitHub Link</b>
+		<br>
+		<br>
+		<a href={{project.githublink}} target="_blank">{{project.githublink}}</a>
+	</div>
+	<div class = "card-action">
+		<b>Technology Used</b>
+		<br>
+		<br>
+		{{project.technologyused}}
+	</div>
+	<div class = "card-action">
+		<b>Instructor</b>
+		<br>
+		<br>
+		{{project.instructor}}
+	</div>
+</div>
+
+<a href="/projects" class="btn">Go Back</a>
+{% endblock%}

@@ -1,0 +1,37 @@
+
+{%extends 'projects/layout.html' %}
+{% block content %}
+
+<h4 class ="center-align red lighten-3">Contact Me</h4>
+
+<ul class="collection ">
+	<!-- <li class=" collection-item center-align">Contact Number - (+1) 480 307 2774</li>
+	<li class=" collection-item center-align">Email Id - <a href="mailto:kkpatil1@asu.edu" target="_blank">kkpatil1@asu.edu</a> </li>
+	<li class=" collection-item  center-align">Personal Email Id - <a href="mailto:ketankrishnapatil@gmail.com" target="_blank">ketankrishnapatil@gmail.com</a> </li>
+	<li class=" collection-item  center-align">GitHub Link - <a href="https://github.com/Thek10patil" target="_blank"> https://github.com/Thek10patil</a></li>
+	<li class=" collection-item  center-align">Linkedin - <a href="https://www.linkedin.com/in/ketan-patil10/" target="_blank"> https://www.linkedin.com/in/ketan-patil10/</a></li> -->	
+	
+	{% for contact in contact%}
+		{% if "Id" in contact.contact_details%}
+		<li class="collection-item">{{contact.contact_details}}
+			<a href="mailto:{{contact.contact_link}}?Subject=Hello%20again" target="_blank">
+				<span style="float: right">{{contact.contact_link}}
+			</a>
+			</span>
+		</li>
+		
+		{%else%}
+		<li class="collection-item">{{contact.contact_details}}
+			<a href="{{contact.contact_link}}" target="_blank">
+				<span style="float: right">{{contact.contact_link}}
+			</a>
+			</span>
+		</li>
+		{%endif%}
+	{% endfor%}
+
+
+</ul>
+
+
+{% endblock%}
